@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eldiaz-c <eldiaz-c@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 18:44:32 by eldiaz-c          #+#    #+#             */
-/*   Updated: 2024/10/25 19:52:07 by eldiaz-c         ###   ########.fr       */
+/*   Updated: 2024/10/27 04:03:59 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
 int	ft_printf(char const *data, ...)
 {
@@ -26,10 +26,10 @@ int	ft_printf(char const *data, ...)
 		if (data[i] == '%')
 		{
 			i++;
-			ft_format(args, i, count);
+			count += ft_format(args, data[i], 1);
 		}
 		else
-			count = count + write(1, &data[i], 1);
+			count += write(1, &data[i], 1);
 		i++;
 	}
 	va_end(args);

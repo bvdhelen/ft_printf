@@ -3,18 +3,23 @@
 /*                                                        :::      ::::::::   */
 /*   ft_print_pointer.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eldiaz-c <eldiaz-c@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 18:55:35 by eldiaz-c          #+#    #+#             */
-/*   Updated: 2024/10/25 20:03:21 by eldiaz-c         ###   ########.fr       */
+/*   Updated: 2024/10/27 04:03:54 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
-void	ft_print_pointer(void *p, int fd)
+int	ft_print_pointer(void *ptr, int fd)
 {
-	unsigned long	pointer;
+	int	count;
 
-	pointer = (unsigned long *)p;
+	count = 0;
+	if (!ptr)
+		return (write(fd, "(nil)", 5));
+	count += write(fd, "0x", 2);
+	count += ft_print_hexadecimal_lower((unsigned long)ptr, fd);
+	return (count);
 }

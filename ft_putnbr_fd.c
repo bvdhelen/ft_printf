@@ -3,30 +3,31 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eldiaz-c <eldiaz-c@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/25 19:36:13 by eldiaz-c          #+#    #+#             */
-/*   Updated: 2024/10/25 19:45:52 by eldiaz-c         ###   ########.fr       */
+/*   Updated: 2024/10/27 04:04:11 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
-void	ft_putnbr_fd(int n, int fd)
+int	ft_putnbr_fd(int n, int fd)
 {
+	int	count;
+
+	count = 0;
 	if (n == -2147483648)
-	{
-		write(fd, "-2147483648", 11);
-		return ;
-	}
+		return (write(fd, "-2147483648", 11));
 	if (n < 0)
 	{
-		ft_putchar_fd('-', fd);
+		count += ft_putchar_fd('-', fd);
 		n = -n;
 	}
 	if (n >= 10)
 	{
-		ft_putnbr_fd(n / 10, fd);
+		count += ft_putnbr_fd(n / 10, fd);
 	}
-	ft_putchar_fd((n % 10) + '0', fd);
+	count += ft_putchar_fd((n % 10) + '0', fd);
+	return (count);
 }

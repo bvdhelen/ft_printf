@@ -3,28 +3,28 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eldiaz-c <eldiaz-c@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/25 19:37:32 by eldiaz-c          #+#    #+#             */
-/*   Updated: 2024/10/25 19:45:59 by eldiaz-c         ###   ########.fr       */
+/*   Updated: 2024/10/27 04:04:21 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
-void	ft_putstr_fd(char *s, int fd)
+int	ft_putstr_fd(char *s, int fd)
 {
 	int	i;
+	int	count;
 
 	i = 0;
+	count = 0;
 	if (s == NULL)
-	{
-		write(1, "(null)", 6);
-		return ;
-	}
+		return (write(fd, "(null)", 6));
 	while (s[i] != '\0')
 	{
-		write(fd, &s[i], 1);
+		count += write(fd, &s[i], 1);
 		i++;
 	}
+	return (count);
 }

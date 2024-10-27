@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: eldiaz-c <eldiaz-c@student.42.fr>          +#+  +:+       +#+         #
+#    By: marvin <marvin@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/25 19:57:16 by eldiaz-c          #+#    #+#              #
-#    Updated: 2024/10/25 20:02:57 by eldiaz-c         ###   ########.fr        #
+#    Updated: 2024/10/27 04:08:45 by marvin           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,13 +18,24 @@ CC = cc
 CFLAGS = -Wall -Werror -Wextra
 
 # Archivos fuente y archivos objeto
-SOURCES = ft_
-
+SOURCES = ft_putchar_fd.c \
+		ft_putnbr_fd.c \
+		ft_putnbr_unsigned_fd.c \
+		ft_putstr_fd.c \
+		ft_print_hexadecimal_lower.c \
+		ft_print_hexadecimal_upper.c \
+		ft_print_pointer.c \
+		ft_format.c \
+		ft_printf.c \
 
 OBJECTS = $(SOURCES:.c=.o)
 
 # Archivo de encabezado
-INCLUDE = libftprintf.h
+INCLUDE = ft_printf.h
+
+# Crear bibliotecas y eliminar archivos
+# AR = ar rcs crea, modifica y extrae archivos desde biblioteca, r remplaza, c crea, s indice
+# RM = rm -f eliminar forzado
 
 # Regla por defecto que lo compila todo
 all: $(NAME)
@@ -33,3 +44,18 @@ all: $(NAME)
 $(NAME): $(OBJECTS) $(INCLUDE)
 		@ar rcs $(NAME) $(OBJECTS)
 
+# Regla para crear los archivos .o
+$(OBJECTS):
+		$(CC) -c $(CFLAGS) $(SOURCES)
+
+# Eliminar todos los archivos .o y .a
+clean:
+		@rm -f $(OBJECTS)
+
+fclean: clean
+		@rm -f $(NAME)
+
+re: fclean $(NAME)
+
+# Indica que las siguientes reglas no son archivos reales
+.PHONY: all clean fclean re
