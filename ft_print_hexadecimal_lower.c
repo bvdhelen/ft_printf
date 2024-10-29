@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_print_hexadecimal_lower.c                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: eldiaz-c <eldiaz-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/25 19:42:31 by eldiaz-c          #+#    #+#             */
-/*   Updated: 2024/10/27 04:03:42 by marvin           ###   ########.fr       */
+/*   Updated: 2024/10/29 16:56:26 by eldiaz-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_print_hexadecimal_lower(unsigned int n, int fd)
+int	ft_print_hexadecimal_lower(unsigned long n, int fd)
 {
 	int		count;
 	char	hex_char;

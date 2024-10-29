@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: marvin <marvin@student.42.fr>              +#+  +:+       +#+         #
+#    By: eldiaz-c <eldiaz-c@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/25 19:57:16 by eldiaz-c          #+#    #+#              #
-#    Updated: 2024/10/27 04:08:45 by marvin           ###   ########.fr        #
+#    Updated: 2024/10/29 16:39:47 by eldiaz-c         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,7 @@ SOURCES = ft_putchar_fd.c \
 		ft_print_hexadecimal_upper.c \
 		ft_print_pointer.c \
 		ft_format.c \
-		ft_printf.c \
+		ft_printf.c
 
 OBJECTS = $(SOURCES:.c=.o)
 
@@ -42,7 +42,7 @@ all: $(NAME)
 
 # Regla para crear la biblioteca
 $(NAME): $(OBJECTS) $(INCLUDE)
-		@ar rcs $(NAME) $(OBJECTS)
+		ar rcs $(NAME) $(OBJECTS)
 
 # Regla para crear los archivos .o
 $(OBJECTS):
@@ -50,10 +50,10 @@ $(OBJECTS):
 
 # Eliminar todos los archivos .o y .a
 clean:
-		@rm -f $(OBJECTS)
+		rm -f $(OBJECTS)
 
 fclean: clean
-		@rm -f $(NAME)
+		rm -f $(NAME)
 
 re: fclean $(NAME)
 
