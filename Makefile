@@ -6,7 +6,7 @@
 #    By: eldiaz-c <eldiaz-c@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/25 19:57:16 by eldiaz-c          #+#    #+#              #
-#    Updated: 2024/10/29 16:39:47 by eldiaz-c         ###   ########.fr        #
+#    Updated: 2024/11/06 19:24:48 by eldiaz-c         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,6 @@ SOURCES = ft_putchar_fd.c \
 		ft_print_hexadecimal_lower.c \
 		ft_print_hexadecimal_upper.c \
 		ft_print_pointer.c \
-		ft_format.c \
 		ft_printf.c
 
 OBJECTS = $(SOURCES:.c=.o)
